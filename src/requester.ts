@@ -52,8 +52,14 @@ export default class Requester implements RequesterClass {
 		return headers;
 	}
 
+	/** C API path with whatsapp phone number */
 	buildCAPIPath(endpoint: string): string {
 		return `/${this.apiVersion}/${this.phoneNumberId}/${endpoint}`;
+	}
+
+	/** B API path with businessAcctId number */
+	buildBAPIPath(endpoint: string): string {
+		return `/${this.apiVersion}/${this.businessAcctId}/${endpoint}`;
 	}
 
 	async sendCAPIRequest(
@@ -74,6 +80,31 @@ export default class Requester implements RequesterClass {
 			this.host,
 			this.port,
 			this.buildCAPIPath(endpoint),
+			method,
+			this.buildHeader(contentType),
+			timeout,
+			method == 'POST' || method == 'PUT' ? body : undefined,
+		);
+	}
+
+	async sendBAPIRequest(
+		method: HttpMethodsEnum,
+		endpoint: string,
+		timeout: number,
+		body?: any,
+	) {
+		const contentType = 'application/json';
+
+		LOGGER.log(
+			`${method} : ${this.protocol.toLowerCase()}//${this.host}:${
+				this.port
+			}/${this.buildBAPIPath(endpoint)}`,
+		);
+
+		return await this.client.sendRequest(
+			this.host,
+			this.port,
+			this.buildBAPIPath(endpoint),
 			method,
 			this.buildHeader(contentType),
 			timeout,
