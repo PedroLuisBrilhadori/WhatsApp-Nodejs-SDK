@@ -43,6 +43,18 @@ export default class Requester implements RequesterClass {
 		this.userAgent = userAgent;
 	}
 
+	updateAccessToken(accessToken: string) {
+		this.accessToken = accessToken;
+	}
+
+	updatePhoneNumberId(phoneNumberId: number) {
+		this.phoneNumberId = phoneNumberId;
+	}
+
+	updateBusinessAcctId(businessAcctId: string) {
+		this.businessAcctId = businessAcctId;
+	}
+
 	buildHeader(contentType: string): GeneralHeaderInterface {
 		const headers: GeneralHeaderInterface = {
 			'Content-Type': contentType,
