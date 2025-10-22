@@ -114,6 +114,7 @@ export declare const enum WebhookTypesEnum {
     Audio = "audio",
     Button = "button",
     Document = "document",
+    Reaction = "reaction",
     Text = "text",
     Image = "image",
     Interactive = "interactive",
