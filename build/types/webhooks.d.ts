@@ -138,6 +138,10 @@ type VideoObject = {
     id: string;
     mime_type: VideoMediaTypesEnum;
 };
+type ReactionObject = {
+    message_id: string;
+    emoji: string;
+};
 export type MessagesObject = {
     audio?: AudioObject;
     button?: ButtonObject;
@@ -155,6 +159,7 @@ export type MessagesObject = {
     system?: SystemObject;
     text?: TextObject;
     timestamp: string;
+    reaction?: ReactionObject;
     type: WebhookTypesEnum;
     video?: VideoObject;
 };

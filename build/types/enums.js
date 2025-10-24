@@ -137,6 +137,7 @@ var WebhookTypesEnum;
   WebhookTypesEnum["Audio"] = "audio";
   WebhookTypesEnum["Button"] = "button";
   WebhookTypesEnum["Document"] = "document";
+  WebhookTypesEnum["Reaction"] = "reaction";
   WebhookTypesEnum["Text"] = "text";
   WebhookTypesEnum["Image"] = "image";
   WebhookTypesEnum["Interactive"] = "interactive";
